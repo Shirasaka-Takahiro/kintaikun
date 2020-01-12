@@ -1,2 +1,38 @@
-<h1>Events#new</h1>
-<p>Find me in app/views/events/new.html.erb</p>
+<%= form_with model: @event, local: true do |f| %>
+  <div class="event_error">
+    <% if @event.errors.any? %>
+        <div id="error_explanation" class="alert alert-danger">
+          <ul>
+            <% @event.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+  </div>
+
+    <div class="title">
+      <%= f.label :title %>
+      <p><%= f.text_field :title %></p>
+    </div>
+
+    <div class="start_time">
+      <%= f.label :start_time %>
+      <p><%= f.datetime_select :start_time %></p>
+    </div>
+
+    <div class="end_time">
+      <%= f.label :endt_time %>
+      <p><%= f.datetime_select :end_time %></p>
+    </div>
+  
+    <div class="description">
+    <%= f.label :description %>
+      <p><%= f.text_area :description %></p>
+    </div>
+    
+    <div class="submit">
+      <%= f.submit %>
+    </div>
+
+<% end %>

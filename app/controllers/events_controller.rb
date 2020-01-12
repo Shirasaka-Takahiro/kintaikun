@@ -1,10 +1,8 @@
 class EventsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create]
+  before_action :authenticate_user!, only: [:new, :create, :edit]
 
   def index
     @events = Event.all
-    @event = Event.find_by(params[:id])
-    @event = Event.new
   end
 
   def show
@@ -12,35 +10,37 @@ class EventsController < ApplicationController
   end
 
   def edit
+    @event = Event.find(params[:id])
   end
 
   def new
     @event = Event.new
-    @events = current_user.events.build
+    @event = current_user.events.build
   end
 
   def create
-    @event = current_user.events.build(event_param)
+    @event = current_user.events.build(event_params)
 
     if @event.save
-      redirect_to events_path
-      flash[:notice] = "#{current_user.username}さんが#{@event.title}を登録しました。"
+      redirect_to events_url
+      flash[:notice] = "#{@event.title}を登録しました。"
     else
       render :new
     end
+
   end
 
   def destroy
     @event = Event.find(params[:id])
     @event.destroy
     flash[:notice] = "#{@event.title}を削除しました。"
-    redirect_to events_path
+    redirect_to events_url
   end
 
   private
 
-  def event_param
-    params.require(:event).permit(:title, :description)
+  def event_params
+    params.require(:event).permit(:title, :description, :start_time, :end_time)
   end
 
 end

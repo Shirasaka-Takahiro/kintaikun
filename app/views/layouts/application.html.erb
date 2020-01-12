@@ -18,7 +18,7 @@
     </head>
 
   <nav class="navbar navbar-light bg-light">
-    <a class="navbar-brand navbar-brand-center" href="#">Kintaikun</a>
+    <a class="navbar-brand navbar-brand-center" href="/events/index">Kintaikun</a>
   </nav>
   <body class="drawer drawer--left">
   <header role="banner">
@@ -28,10 +28,11 @@
     </button>
     <nav class="drawer-nav" role="navigation">
       <ul class="drawer-menu">
+        <%= link_to 'ホーム', events_path, class: 'nav-item nav-link' %>
         <%= link_to 'ログイン', new_user_session_path, class: 'nav-item nav-link' unless user_signed_in? %>
         <%= link_to 'ログアウト', destroy_user_session_path, class: 'nav-item nav-link' if user_signed_in? %>
         <%= link_to '新規登録', new_user_registration_path, class: 'nav-item nav-link' unless user_signed_in? %>
-        <%= link_to 'ホーム', events_path, class: 'nav-item nav-link' %>
+        <%= link_to 'イベントを登録する', new_event_path, class: 'nav-item nav-link' if user_signed_in? %>
       </ul>
     </nav>
   </header>
