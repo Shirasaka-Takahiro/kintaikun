@@ -28,9 +28,10 @@
     </button>
     <nav class="drawer-nav" role="navigation">
       <ul class="drawer-menu">
-        <%= link_to 'ログイン', user_session_path, class: 'nav-item nav-link' unless user_signed_in? %>
+        <%= link_to 'ログイン', new_user_session_path, class: 'nav-item nav-link' unless user_signed_in? %>
         <%= link_to 'ログアウト', destroy_user_session_path, class: 'nav-item nav-link' if user_signed_in? %>
         <%= link_to '新規登録', new_user_registration_path, class: 'nav-item nav-link' unless user_signed_in? %>
+        <%= link_to 'ホーム', events_path, class: 'nav-item nav-link' %>
       </ul>
     </nav>
   </header>

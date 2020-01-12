@@ -62,3 +62,4 @@ gem 'devise-i18n-views'
 gem "loofah", ">= 2.3.1"
 gem 'dotenv-rails'
 gem "simple_calendar", "~> 2.0"
+gem 'faker'
