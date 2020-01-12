@@ -1,0 +1,17 @@
+<%= month_calendar events: @events do |date, events| %>
+    <%= date %>
+
+    <% events.each do |events| %>
+      <div>
+        <p><%= events.title %></p>
+        <p><%= events.description %></p>
+      </div>
+    <% end %>
+    
+<% end %>
+
+<%= form_with model: @event do |f| %>
+  <p><%= f.text_field :title %></p>
+  <p><%= f.text_field :description %></p>
+  <%= f.submit %>
+<% end %>

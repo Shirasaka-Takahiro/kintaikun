@@ -1,0 +1,82 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require simple_calendar
+ *= require_tree .
+ *= require_self
+ */
+
+ @import "bootstrap";
+
+// media queli
+$pc: 1024px; // PC
+$tab: 680px; // tablet
+$sp: 480px;  // smartphone
+
+@mixin pc {
+    @media (max-width: ($pc)) {
+      @content;
+    }
+  }
+@mixin tab {
+    @media (max-width: ($tab)) {
+      @content;
+    }
+  }
+@mixin sp {
+    @media (max-width: ($sp)) {
+      @content;
+    }
+}
+
+//  common
+
+
+// navbar
+
+.navbar {
+    height: 10%;
+    width: 100%;
+
+    .navbar-brand {
+        text-align: center;
+        margin: auto;
+        font-size: 50px;
+
+    }
+
+}
+
+// calendar 
+
+.simple-calendar {
+    margin: 0 3% 2% 3%;
+    font-size: 20px;
+
+    @include tab {
+        font-size: 25px;
+    };
+    @include sp {
+        font-size: 35px;
+
+    };
+
+    .calendar-heading {
+      text-align: center;
+      margin: 20px;
+   }
+
+   .calendar-title {
+       padding: 0 5px;
+   }
+
+}
