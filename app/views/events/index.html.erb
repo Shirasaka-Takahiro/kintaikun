@@ -15,6 +15,8 @@
       <th scope="col">タイトル</th>
       <th scope="col">開始時間</th>
       <th scope="col">終了時間</th>
+      <th scope="col">休憩時間</th>
+      <th scope="col">休憩時間(終了)</th>
     </tr>
   </thead>
   <tbody>
@@ -23,6 +25,8 @@
         <td><%= link_to event.title, event_path(event.id) %></td>
         <td><%= event.start_time.strftime("%Y-%m-%d %H:%M") %></td>
         <td><%= event.end_time.strftime("%Y-%m-%d %H:%M") %></td>
+        <td><%= event.break_time %></td>
+        <td><%= event.break_time_end %></td>
       </tr>
     <% end %>
   </tbody>
