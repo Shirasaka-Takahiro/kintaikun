@@ -1,6 +1,8 @@
 <%= @event.title %>
-<%= @event.start_time.strftime("%Y-%m-%d %H:%M") %>
-<%= @event.start_time.strftime("%Y-%m-%d %H:%M") %>
+<%= @event.start_time %>
+<%= @event.end_time %>
+<%= @event.worktime %>
+<%= @event.breaktime %>
 <%= @event.description %>
 <%= link_to '戻る', events_path, class: 'btn' %>
 

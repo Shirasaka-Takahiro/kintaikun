@@ -10,18 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_13_164721) do
+ActiveRecord::Schema.define(version: 2020_01_13_183350) do
 
   create_table "events", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "title"
     t.text "description"
-    t.datetime "start_time"
-    t.datetime "end_time"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id"
-    t.datetime "break_time"
-    t.datetime "break_time_end"
+    t.integer "worktime"
+    t.integer "breaktime"
+    t.datetime "start_time"
+    t.datetime "end_time"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
