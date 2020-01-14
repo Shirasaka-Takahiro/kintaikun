@@ -42,7 +42,7 @@ class EventsController < ApplicationController
 
   def event_params
     params.require(:event).permit(:title, :start_time, :end_time, :worktime, :lessontime, 
-    :paperworktime, :breaktime, :description)
+    :paperworktime, :trainingtime, :breaktime, :travel_expenses, :description)
   end
 
 end

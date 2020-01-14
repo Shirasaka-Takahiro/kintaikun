@@ -10,31 +10,54 @@
 <% end %>
 
 <table class="table">
-  <thead>
+  <thead class="thead-dark">
     <tr>
-      <th scope="col">タイトル</th>
       <th scope="col">開始時間</th>
       <th scope="col">退勤時間</th>
-      <th scope="col">勤務時間(分)</th>
-      <th scope="col">授業時間(分)</th>
       <th scope="col">事務時間(分)</th>
+      <th scope="col">授業時間(分)</th>
+      <th scope="col">研修時間(分)</th>
+      <th scope="col">勤務時間(分)</th>
       <th scope="col">休憩時間(分)</th>
-      <th scope="col">合計時間(分)</th>
+      <th scope="col">交通費</th>
     </tr>
   </thead>
   <tbody>
     <% @events.each do |event| %>
       <tr>
-        <td><%= link_to event.title, event_path(event.id) %></td>
         <td><%= event.start_time %></td>
         <td><%= event.end_time %></td>
-        <td><%= event.worktime %></td>
-        <td><%= event.lessontime %></td>
         <td><%= event.paperworktime %></td>
+        <td><%= event.lessontime %></td>
+        <td><%= event.trainingtime %></td>
+        <td><%= event.worktime %></td>
         <td><%= event.breaktime %></td>
-        <td><%= @total_time %></td>
+        <td><%= event.travel_expenses%></td>
       </tr>
     <% end %>
   </tbody>
-  <%= paginate @events %>
+</table>
+<%= paginate @events %>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">年・月</th>
+      <th scope="col">事務時間</th>
+      <th scope="col">授業時間</th>
+      <th scope="col">研修時間</th>
+      <th scope="col">勤務時間</th>
+      <th scope="col">休憩時間</th>
+      <th scope="col">交通費</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @events.each do |event| %>
+    <tr>
+      <th scope="row"></th>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+    </tr>
+    <% end %>
+  </tbody>
 </table>
