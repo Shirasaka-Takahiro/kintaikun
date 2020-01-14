@@ -1,8 +1,9 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit]
+  PER = 5
 
   def index
-    @events = Event.all
+    @events = Event.page(params[:page]).per(PER)
   end
 
   def show
@@ -40,7 +41,8 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:title, :start_time, :end_time, :worktime, :breaktime, :description)
+    params.require(:event).permit(:title, :start_time, :end_time, :worktime, :lessontime, 
+    :paperworktime, :breaktime, :description)
   end
 
 end

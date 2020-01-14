@@ -15,9 +15,11 @@
       <th scope="col">タイトル</th>
       <th scope="col">開始時間</th>
       <th scope="col">退勤時間</th>
-      <th scope="col">勤務時間</th>
-      <th scope="col">休憩時間</th>
-      <th scope="col">合計時間</th>
+      <th scope="col">勤務時間(分)</th>
+      <th scope="col">授業時間(分)</th>
+      <th scope="col">事務時間(分)</th>
+      <th scope="col">休憩時間(分)</th>
+      <th scope="col">合計時間(分)</th>
     </tr>
   </thead>
   <tbody>
@@ -27,9 +29,12 @@
         <td><%= event.start_time %></td>
         <td><%= event.end_time %></td>
         <td><%= event.worktime %></td>
+        <td><%= event.lessontime %></td>
+        <td><%= event.paperworktime %></td>
         <td><%= event.breaktime %></td>
         <td><%= @total_time %></td>
       </tr>
     <% end %>
   </tbody>
+  <%= paginate @events %>
 </table>
