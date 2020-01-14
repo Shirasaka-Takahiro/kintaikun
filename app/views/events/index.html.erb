@@ -25,8 +25,8 @@
   <tbody>
     <% @events.each do |event| %>
       <tr>
-        <td><%= event.start_time %></td>
-        <td><%= event.end_time %></td>
+        <td><%= event.start_time.strftime("%Y-%m-%d  %H:%M") %></td>
+        <td><%= event.end_time.strftime("%Y-%m-%d  %H:%M") %></td>
         <td><%= event.paperworktime %></td>
         <td><%= event.lessontime %></td>
         <td><%= event.trainingtime %></td>
