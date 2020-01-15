@@ -1,14 +1,15 @@
 <%= month_calendar events: @events do |date, events| %>
     <%= date.day %>
 
-    <% events.each do |event| %>
+    <% events.each do |events| %>
       <div>
-        <%= link_to event.title, event_path(event.id) %>
+        <%= link_to events.title, event_path(events.id) %>
       </div>
     <% end %>
     
 <% end %>
 
+<h3>各時間</h3>
 <table class="table">
   <thead class="thead-dark">
     <tr>
@@ -23,16 +24,22 @@
     </tr>
   </thead>
   <tbody>
-    <% @events.each do |event| %>
+    <% @events.each do |events| %>
       <tr>
-        <td><%= event.start_time.strftime("%Y-%m-%d  %H:%M") %></td>
-        <td><%= event.end_time.strftime("%Y-%m-%d  %H:%M") %></td>
-        <td><%= event.paperworktime %></td>
-        <td><%= event.lessontime %></td>
-        <td><%= event.trainingtime %></td>
-        <td><%= event.worktime %></td>
-        <td><%= event.breaktime %></td>
-        <td><%= event.travel_expenses%></td>
+        <td><%= events.start_time.strftime("%Y-%m-%d  %H:%M") %></td>
+        <td><%= events.end_time.strftime("%Y-%m-%d  %H:%M") %></td>
+        <td><%= events.paperworktime %></td>
+        <td><%= events.lessontime %></td>
+        <td><%= events.trainingtime %></td>
+        <td><%= events.worktime %></td>
+        <td><%= events.breaktime %></td>
+        <td><%= events.travel_expenses %></td>
+        <td>
+          <% if user_signed_in? %>
+            <span><%= link_to '編集', edit_event_path(events.id), class: 'btn' %></span>
+            <span><%= link_to '削除', event_path(events.id), method: :delete, data:{confirm: "削除してもよろしいですか？"}, class: 'btn' %></span>
+          <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>
@@ -50,14 +57,18 @@
       <th scope="col">交通費</th>
     </tr>
   </thead>
+  <h3>合計</h3>
   <tbody>
-    <% @events.each do |event| %>
-    <tr>
-      <th scope="row"></th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
+    <% @events.each do |events| %>
+      <tr>
+        <td><%= events.created_at.strftime("%Y-%m-%d  %H:%M") %></td>  
+        <td><%= @totaltime_paperworktime %></td>
+        <td><%= @totaltime_lessontime %></td>
+        <td><%= @totaltime_trainingtime %></td>
+        <td><%= @totaltime_worktime %></td>
+        <td><%= @totaltime_breaktime %></td>
+        <td><%= @total_trave_expenses %></td>
+      </tr>
     <% end %>
   </tbody>
 </table>

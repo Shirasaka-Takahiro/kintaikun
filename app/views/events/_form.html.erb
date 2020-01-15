@@ -1,0 +1,75 @@
+<%= form_with model: event, local: true do |f| %>
+    <div class="event_error">
+      <% if event.errors.any? %>
+          <div id="error_explanation" class="alert alert-danger">
+            <ul>
+              <% event.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+      <% end %>
+    </div>
+  
+      <div class="title">
+        <%= f.label :タイトル %>
+        <p><%= f.text_field :title %></p>
+      </div>
+  
+      <div class="description">
+      <%= f.label :詳細 %>
+        <p><%= f.text_area :description %></p>
+      </div>
+  
+      <div class="start_time">
+        <%= f.label :開始時間 %>
+        <p><%= f.datetime_select :start_time %></p>
+      </div>
+  
+      <div class="end_time">
+        <%= f.label :退勤時間 %>
+        <p><%= f.datetime_select :end_time %></p>
+      </div>
+  
+      <div class="paperworktime">
+        <%= f.label :事務時間 %>
+        <p><%= f.number_field	 :paperworktime %></p>
+      </div>
+  
+      <div class="lessontime">
+        <%= f.label :授業時間 %>
+        <p><%= f.number_field	 :lessontime %></p>
+      </div>
+  
+      <div class="trainingtime">
+        <%= f.label :研修時間 %>
+        <p><%= f.number_field	 :trainingtime %></p>
+      </div>
+  
+  
+      <div class="worktime">
+        <%= f.label :勤務時間 %>
+        <p><%= f.number_field	 :worktime %></p>
+      </div>
+  
+      <div class="breaktime">
+        <%= f.label :休憩時間 %>
+        <p><%= f.number_field	 :breaktime %></p>
+      </div>
+  
+      <div class="travel_expenses">
+        <%= f.label :交通費 %>
+        <p><%= f.number_field	 :travel_expenses %></p>
+      </div>
+    
+
+      <div class="submit">
+        <% if current_page?(new_event_path) %>
+          <%= f.submit "登録する" %>
+        <% else %>
+          <%= f.submit "更新する" %>
+        <% end %>
+      </div>
+  
+  <% end %>
+  
