@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit]
-  PER = 5
+  PER = 4
 
   def index
     @events = Event.page(params[:page]).per(PER)
@@ -21,8 +21,8 @@ class EventsController < ApplicationController
   end
 
   def new
-    @event = Event.new
-    @event = current_user.events.build
+    @event = Event.new(user_id: current_user.id)
+    # @event = current_user.events.build
   end
 
   def create

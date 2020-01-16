@@ -2,7 +2,7 @@
     <%= date.day %>
 
     <% events.each do |events| %>
-      <% if user_signed_in? && events.id == current_user.id %>
+      <% if user_signed_in? && events.user_id == current_user.id %>
         <div>
           <%= link_to events.title, event_path(events.id) %>
         </div>
@@ -28,7 +28,7 @@
   </thead>
   <tbody>
     <% @events.each do |events| %>
-      <% if user_signed_in? && events.id == current_user.id %>
+      <% if user_signed_in? && events.user_id == current_user.id %>
         <tr>
           <td><%= events.start_time.strftime("%Y-%m-%d  %H:%M") %></td>
           <td><%= events.end_time.strftime("%Y-%m-%d  %H:%M") %></td>
@@ -63,7 +63,7 @@
   <h3>合計</h3>
   <tbody>
     <% @events.each do |events| %>
-      <% if user_signed_in? && events.id == current_user.id %>
+      <% if user_signed_in? && events.user_id == current_user.id %>      
         <tr>
           <td><%= events.created_at.strftime("%Y-%m-%d  %H:%M") %></td>  
           <td><%= @totaltime_paperworktime %></td>
