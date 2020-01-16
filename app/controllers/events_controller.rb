@@ -30,7 +30,7 @@ class EventsController < ApplicationController
 
     if @event.save
       redirect_to events_url
-      flash[:notice] = "#{@event.title}を登録しました。"
+      flash[:notice] = "#{@event.created_at}を登録しました。"
     else
       render :new
     end
@@ -40,7 +40,14 @@ class EventsController < ApplicationController
   def destroy
     @event = Event.find(params[:id])
     @event.destroy
-    flash[:notice] = "#{@event.title}を削除しました。"
+    flash[:notice] = "#{@event.created_at}を削除しました。"
+    redirect_to events_url
+  end
+
+  def update
+    @event = Event.find(params[:id])
+    @event.update(event_params)
+    flash[:notice] = "#{@event.created_at}を編集しました。"
     redirect_to events_url
   end
 
