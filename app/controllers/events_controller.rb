@@ -3,7 +3,7 @@ class EventsController < ApplicationController
   PER = 5
 
   def index
-    @events = Event.all.page(params[:page]).per(PER)
+    @events = Event.all.page(params[:page]).per(PER).order("created_at DESC")
   end
 
   def show

@@ -1,13 +1,15 @@
 class UsersController < ApplicationController
+  PER = 5
+
   def show
     @user = User.find(params[:id])
-    @events = @user.events
-    @totaltime_paperworktime = Event.sum(:paperworktime)
-    @totaltime_lessontime = Event.sum("@user.events")
-    @totaltime_trainingtime = Event.sum("@user.events")
-    @totaltime_worktime = Event.sum("@user.events")
-    @totaltime_breaktime = Event.sum("@user.events")
-    @total_travel_expenses = Event.sum("@user.events")
+    @events = @user.events.page(params[:page]).per(PER).order("created_at DESC")
+    @totaltime_paperworktime = @events.sum(:paperworktime)
+    @totaltime_lessontime = @events.sum(:lessontime)
+    @totaltime_trainingtime = @events.sum(:trainingtime)
+    @totaltime_worktime = @events.sum(:worktime)
+    @totaltime_breaktime = @events.sum(:breaktime)
+    @total_travel_expenses = @events.sum(:travel_expenses)
   end
 
   def index
