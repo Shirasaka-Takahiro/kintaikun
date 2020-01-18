@@ -47,33 +47,3 @@
     <% end %>
   </tbody>
 </table>
-<%= paginate @events %>
-<table class="table">
-  <thead class="thead-dark">
-    <tr>
-      <th scope="col">年・月</th>
-      <th scope="col">事務時間</th>
-      <th scope="col">授業時間</th>
-      <th scope="col">研修時間</th>
-      <th scope="col">勤務時間</th>
-      <th scope="col">休憩時間</th>
-      <th scope="col">交通費</th>
-    </tr>
-  </thead>
-  <h3>合計</h3>
-  <tbody>
-    <% @events.each do |events| %>
-      <% if user_signed_in? && events.user_id == current_user.id %>      
-        <tr>
-          <td><%= events.created_at.strftime("%Y-%m-%d  %H:%M") %></td>  
-          <td><%= @totaltime_paperworktime %></td>
-          <td><%= @totaltime_lessontime %></td>
-          <td><%= @totaltime_trainingtime %></td>
-          <td><%= @totaltime_worktime %></td>
-          <td><%= @totaltime_breaktime %></td>
-          <td><%= @total_travel_expenses %></td>
-        </tr>
-      <% end %>
-    <% end %>
-  </tbody>
-</table>

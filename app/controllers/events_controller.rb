@@ -1,15 +1,9 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit]
-  PER = 4
+  PER = 5
 
   def index
-    @events = Event.page(params[:page]).per(PER)
-    @totaltime_paperworktime = Event.all.sum(:paperworktime)
-    @totaltime_lessontime = Event.all.sum(:lessontime)
-    @totaltime_trainingtime = Event.all.sum(:trainingtime)
-    @totaltime_worktime = Event.all.sum(:worktime)
-    @totaltime_breaktime = Event.all.sum(:breaktime)
-    @total_travel_expenses = Event.all.sum(:travel_expenses)
+    @events = Event.all.page(params[:page]).per(PER)
   end
 
   def show
@@ -22,7 +16,6 @@ class EventsController < ApplicationController
 
   def new
     @event = Event.new(user_id: current_user.id)
-    # @event = current_user.events.build
   end
 
   def create
