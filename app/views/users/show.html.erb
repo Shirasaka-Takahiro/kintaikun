@@ -1,5 +1,5 @@
 <div class="user_show">
-  <%= @user.username %>
+  <h1 class="text-center"><%= @user.username %>さんのページ</h1>
   <table class="table">
   <thead class="thead-dark">
     <tr>
@@ -10,6 +10,7 @@
       <th scope="col">勤務時間</th>
       <th scope="col">休憩時間</th>
       <th scope="col">交通費</th>
+      <th scope="col">その他</th>      
     </tr>
   </thead>
   <h3>合計</h3>
@@ -24,10 +25,12 @@
           <td><%= @totaltime_worktime %></td>
           <td><%= @totaltime_breaktime %></td>
           <td><%= @total_travel_expenses %></td>
+          <td><%= render partial: "shares/edit_delete_btn", locals: { events: events } %></td>
         </tr>
       <% end %>
     <% end %>
   </tbody>
 </table>
-
+<p>今月  合計 <%= @events.by_month.count %> 日</p>
+<p>先月  合計 <%= @events.before(Date.current.month).count %> 日</p>
 </div>

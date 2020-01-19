@@ -65,3 +65,4 @@ gem "simple_calendar", "~> 2.0"
 gem 'faker'
 gem 'kaminari'
 gem 'kaminari-bootstrap'
+gem 'by_star'

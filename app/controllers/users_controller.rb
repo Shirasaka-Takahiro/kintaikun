@@ -1,9 +1,9 @@
 class UsersController < ApplicationController
-  PER = 5
+  PER = 3
 
   def show
     @user = User.find(params[:id])
-    @events = @user.events.page(params[:page]).per(PER).order("created_at DESC")
+    @events = @user.events.page(params[:page]).per(PER).order("created_at DESC").by_month(Time.current.month, field: :created_at)
     @totaltime_paperworktime = @events.sum(:paperworktime)
     @totaltime_lessontime = @events.sum(:lessontime)
     @totaltime_trainingtime = @events.sum(:trainingtime)

@@ -38,10 +38,7 @@
           <td><%= events.worktime %></td>
           <td><%= events.breaktime %></td>
           <td><%= events.travel_expenses %></td>
-          <td>
-            <span><%= link_to '編集', edit_event_path(events.id), class: 'btn' %></span>
-            <span><%= link_to '削除', event_path(events.id), method: :delete, data:{confirm: "削除してもよろしいですか？"}, class: 'btn' %></span>
-          </td>
+          <td><%= render partial: "shares/edit_delete_btn", locals: { events: events } %></td>          
         </tr>
         <% end %>
     <% end %>
