@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   root to: 'events#index'
   get 'events/index'
 
-  resources :events
+  resources :events do
+    collection { post :import }
+  end
 
   devise_for :users, controllers: {
     registrations: 'users/registrations',
