@@ -20,6 +20,10 @@
       <%= f.label :詳細 %>
         <p><%= f.text_area :description %></p>
       </div>
+
+      <div class="day">
+      <%= f.select :day, [["月", "月"], ["火", "火"], ["水", "水"], ["木", "木"], ["金", "金"], ["土", "土"], ["日", "日"] ], :prompt => "曜日を選択"  %>
+      </div>
   
       <div class="start_time">
         <%= f.label :開始時間 %>

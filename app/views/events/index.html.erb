@@ -15,6 +15,7 @@
 <table class="table">
   <thead class="thead-dark">
     <tr>
+      <th scope="col">曜日</th>
       <th scope="col">開始時間</th>
       <th scope="col">退勤時間</th>
       <th scope="col">事務時間(分)</th>
@@ -30,6 +31,7 @@
     <% @events.each do |events| %>
       <% if user_signed_in? && events.user_id == current_user.id %>
         <tr>
+          <td><%= events.day%></td>
           <td><%= events.start_time.strftime("%Y-%m-%d  %H:%M") %></td>
           <td><%= events.end_time.strftime("%Y-%m-%d  %H:%M") %></td>
           <td><%= events.paperworktime %></td>
@@ -44,6 +46,7 @@
     <% end %>
   </tbody>
 </table>
+<%= paginate @events %>
 <div class="csv">
   <% if user_signed_in? %>
     <%= link_to "CSV出力", events_path(format: :csv), class: "btn" %>

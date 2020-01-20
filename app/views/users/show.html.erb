@@ -31,8 +31,5 @@
     <% end %>
   </tbody>
 </table>
-<div class="total_month">
-  <p>今月  合計 <%= @events.by_month.count %> 日</p>
-  <p>先月  合計 <%= @events.before(Date.current.month).count %> 日</p>
-</div>
+<%= paginate @events %>
 </div>
