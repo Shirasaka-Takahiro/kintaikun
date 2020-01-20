@@ -31,7 +31,7 @@
     <% @events.each do |events| %>
       <% if user_signed_in? && events.user_id == current_user.id %>
         <tr>
-          <td><%= events.day%></td>
+          <td><%= events.day %></td>
           <td><%= events.start_time.strftime("%Y-%m-%d  %H:%M") %></td>
           <td><%= events.end_time.strftime("%Y-%m-%d  %H:%M") %></td>
           <td><%= events.paperworktime %></td>
