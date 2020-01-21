@@ -13,7 +13,7 @@
       <th scope="col">その他</th>      
     </tr>
   </thead>
-  <h3>合計</h3>
+  <h3>合計(分)</h3>
   <tbody>
     <% @events.each do |events| %>
       <% if user_signed_in? && events.user_id == current_user.id %>      
@@ -33,3 +33,37 @@
 </table>
 <%= paginate @events %>
 </div>
+
+<%= render partial: 'shares/calculator' %>
+
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">年・月</th>
+      <th scope="col">事務時間</th>
+      <th scope="col">授業時間</th>
+      <th scope="col">研修時間</th>
+      <th scope="col">勤務時間</th>
+      <th scope="col">休憩時間</th>
+      <th scope="col">交通費</th>
+      <th scope="col">その他</th>      
+    </tr>
+  </thead>
+  <h3>合計(時間)</h3>
+  <tbody>
+    <% @events.each do |events| %>
+      <% if user_signed_in? && events.user_id == current_user.id %>      
+        <tr>
+          <td><%= events.created_at.strftime("%Y-%m-%d  %H:%M") %></td>  
+          <td><%= @totaltime_paperworktime_hour %></td>
+          <td><%= @totaltime_lessontime_hour %></td>
+          <td><%= @totaltime_trainingtime_hour %></td>
+          <td><%= @totaltime_worktime_hour %></td>
+          <td><%= @totaltime_breaktime_hour %></td>
+          <td><%= @total_travel_expenses %></td>
+          <td><%= render partial: "shares/edit_delete_btn", locals: { events: events } %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
