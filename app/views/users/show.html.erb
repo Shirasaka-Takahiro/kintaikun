@@ -34,8 +34,6 @@
 <%= paginate @events %>
 </div>
 
-<%= render partial: 'shares/calculator' %>
-
 <table class="table">
   <thead class="thead-dark">
     <tr>
@@ -49,7 +47,10 @@
       <th scope="col">その他</th>      
     </tr>
   </thead>
-  <h3>合計(時間)</h3>
+  <div class="time-hour">
+    <h3>合計(時間)</h3>
+    <span><%= render partial: 'shares/calculator' %></span>
+  </div>
   <tbody>
     <% @events.each do |events| %>
       <% if user_signed_in? && events.user_id == current_user.id %>      

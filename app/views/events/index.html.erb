@@ -28,8 +28,8 @@
     </tr>
   </thead>
   <tbody>
-    <% @events.each do |events| %>
-      <% if user_signed_in? && events.user_id == current_user.id %>
+      <% @events.each do |events| %>
+        <% if user_signed_in? && events.user_id == current_user.id %>
         <tr>
           <td><%= events.day %></td>
           <td><%= events.start_time.strftime("%Y-%m-%d  %H:%M") %></td>
@@ -46,7 +46,7 @@
     <% end %>
   </tbody>
 </table>
-<%= paginate @events %>
+<%= paginate @events if user_signed_in? %>
 <div class="csv">
   <% if user_signed_in? %>
     <%= link_to "CSV出力", events_path(format: :csv), class: "btn" %>
