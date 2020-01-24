@@ -40,6 +40,31 @@ $sp: 480px;  // smartphone
 
 //  common
 
+.pagination {
+  justify-content: center;
+}
+
+.edit_delete_btn {
+
+  .btn {
+    display: block;
+	  position: relative;
+	  text-align: center;
+	  text-decoration: none;
+	  color: #1B1B1B;
+	  background: #fff;
+    border:1px solid #1B1B1B;
+  
+    &:hover {
+      background: #1B1B1B;
+      color: #fff;
+	    cursor: pointer;
+	    text-decoration: none;
+    }
+
+  }
+
+}
 
 // navbar
 
@@ -106,10 +131,10 @@ $sp: 480px;  // smartphone
     font-size: 20px;
 
     @include tab {
-        font-size: 25px;
+        font-size: 35px;
     };
     @include sp {
-        font-size: 35px;
+        font-size: 40px;
 
     };
 
@@ -121,5 +146,55 @@ $sp: 480px;  // smartphone
    .calendar-title {
        padding: 0 5px;
    }
+
+}
+
+// time
+
+.time {
+  text-align: center;
+  margin: 20px;
+
+  @include tab {
+    font-size: 20px;
+  };
+  @include sp {
+    font-size: 40px;
+  };
+
+}
+
+// csv 
+
+.csv {
+
+  margin: 10px;
+
+  .btn {
+    border: solid 1px black;
+
+    &:hover {
+      background: #1B1B1B;
+      color: #fff;
+	    cursor: pointer;
+	    text-decoration: none;
+    }
+
+  }
+
+}
+
+// user_page
+
+.user_page {
+  margin: 20px;
+  text-align: center;
+
+  @include tab {
+    font-size: 20px;
+  };
+  @include sp {
+    font-size: 40px;
+  };
 
 }

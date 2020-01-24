@@ -11,6 +11,7 @@
     
 <% end %>
 
+<div class="time">
 <h3>各時間</h3>
 <table class="table">
   <thead class="thead-dark">
@@ -46,13 +47,14 @@
     <% end %>
   </tbody>
 </table>
-<%= paginate @events if user_signed_in? %>
-<div class="csv">
+  <%= paginate @events if user_signed_in? %>
+  <div class="csv">
   <% if user_signed_in? %>
-    <%= link_to "CSV出力", events_path(format: :csv), class: "btn" %>
+    <%= link_to "CSV出力", events_path(format: :csv), class: 'btn' %>
     <%= form_tag import_events_path, multipart: true do %>
       <%= file_field_tag :file %>
       <%= submit_tag "CSV入力" %>
     <% end %>
   <% end %>
+</div>
 </div>

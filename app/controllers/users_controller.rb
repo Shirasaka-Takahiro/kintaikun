@@ -10,7 +10,7 @@ class UsersController < ApplicationController
     @totaltime_worktime = @events.sum(:worktime)
     @totaltime_breaktime = @events.sum(:breaktime)
     @total_travel_expenses = @events.sum(:travel_expenses)
-    @totaltime_paperworktime_hour = @totaltime_paperworktime.to_f / 60
+    @totaltime_paperworktime_hour = @totaltime_paperworktime.to_f. / 60
     @totaltime_lessontime_hour = @totaltime_lessontime.to_f / 60
     @totaltime_training_hour = @totaltime_trainingtime.to_f / 60
     @totaltime_worktime_hour = @totaltime_worktime.to_f / 60

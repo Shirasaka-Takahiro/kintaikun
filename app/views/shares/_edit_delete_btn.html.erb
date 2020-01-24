@@ -1,8 +1,6 @@
-<% if user_signed_in?  %>
-  <% if current_page?(events_path) %>
+<div class="edit_delete_btn">
+  <% if user_signed_in?  %>
     <span><%= link_to '編集', edit_event_path(events.id), class: 'btn'  %></span>
     <span><%= link_to '削除', event_path(events.id), method: :delete, data:{confirm: "削除してもよろしいですか？"}, class: 'btn' %></span>
-  <% else %>
-    <span><%= link_to '削除', event_path(events.id), method: :delete, data:{confirm: "削除してもよろしいですか？"}, class: 'btn' %></span>
   <% end %>
-<% end %>
+</div>

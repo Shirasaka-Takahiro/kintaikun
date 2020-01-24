@@ -1,4 +1,4 @@
-<div class="user_show">
+<div class="user_page">
   <h1 class="text-center"><%= @user.username %>さんのページ</h1>
   <table class="table">
   <thead class="thead-dark">
@@ -31,8 +31,7 @@
     <% end %>
   </tbody>
 </table>
-<%= paginate @events %>
-</div>
+<class="total_pagination"><%= paginate @events %>
 
 <table class="table">
   <thead class="thead-dark">
@@ -49,8 +48,8 @@
   </thead>
   <div class="time-hour">
     <h3>合計(時間)</h3>
-    <span><%= render partial: 'shares/calculator' %></span>
   </div>
+  <div class="calculator"><%= render partial: 'shares/calculator' %></div>
   <tbody>
     <% @events.each do |events| %>
       <% if user_signed_in? && events.user_id == current_user.id %>      
@@ -68,3 +67,4 @@
     <% end %>
   </tbody>
 </table>
+</div>
