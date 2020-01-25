@@ -1,4 +1,5 @@
-<%= form_with model: event, local: true do |f| %>
+<div class="form">
+  <%= form_with model: event, local: true do |f| %>
     <div class="event_error">
       <% if event.errors.any? %>
           <div id="error_explanation" class="alert alert-danger">
@@ -22,7 +23,8 @@
       </div>
 
       <div class="day">
-      <%= f.select :day, [["月", "月"], ["火", "火"], ["水", "水"], ["木", "木"], ["金", "金"], ["土", "土"], ["日", "日"]], :prompt => "曜日を選択", class: "form-control" %>
+        <%= f.label :曜日 %>        
+        <p><%= f.select :day, [["月", "月"], ["火", "火"], ["水", "水"], ["木", "木"], ["金", "金"], ["土", "土"], ["日", "日"]], :prompt => "曜日を選択", class: "form-control" %></p>
       </div>
   
       <div class="start_time">
@@ -77,4 +79,5 @@
 
   <% end %>
 
-  <%= render partial: 'shares/calculator' %>
+  <p><%= render partial: 'shares/calculator' %></p>
+</div>
