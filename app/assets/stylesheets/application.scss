@@ -223,3 +223,21 @@ $sp: 480px;  // smartphone
     font-size: 35px;
   };
 }
+
+.admin_page {
+  margin: 20px;
+
+  .user_search {
+    text-align: center;
+    margin: 10px;
+  }
+
+  @include tab {
+    font-size: 25px;
+
+  };
+  @include sp {
+    font-size: 30px;
+  };
+
+}
