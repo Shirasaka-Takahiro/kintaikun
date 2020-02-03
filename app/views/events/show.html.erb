@@ -1,9 +1,35 @@
-<%= @event.title %>
-<%= @event.start_time %>
-<%= @event.end_time %>
-<%= @event.worktime %>
-<%= @event.breaktime %>
-<%= @event.travel_expenses %>
-<%= @event.description %>
+<div class="event_show">  
+  <table class="table">
+  <tbody>
+    <tr>
+      <th scope="row">タイトル</th>
+      <td><%= @event.title %></td>
+    </tr>
+    <tr>
+      <th scope="row">開始時間</th>
+      <td><%= @event.start_time %></td>
+    </tr>
+    <tr>
+      <th scope="row">終了時間</th>
+      <td><%= @event.end_time %></td>
+    </tr>
+    <tr>
+      <th scope="row">勤務時間</th>
+      <td><%= @event.worktime %></td>
+    </tr>
+    <tr>
+      <th scope="row">休憩時間</th>
+      <td><%= @event.breaktime %></td>
+    </tr>
+    <tr>
+      <th scope="row">交通費</th>
+      <td><%= @event.travel_expenses %></td>
+    </tr>
+    <tr>
+      <th scope="row">詳細</th>
+      <td><%= @event.description %></td>
+    </tr>
+  </tbody>
+  </table>
 <%= link_to '戻る', events_path, class: 'btn' %>
-
+</div>
