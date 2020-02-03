@@ -4,7 +4,7 @@ class EventsController < ApplicationController
 
   def index
     @user = User.find_by(params[:id])
-    @events = @user.events.page(params[:page]).per(PER)
+    @events = Event.all.page(params[:page]).per(PER)
   end
 
   def show
