@@ -16,11 +16,11 @@ require('jquery')
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
 
-$(document).ready(function() {
+jQuery(document).ready(function() {
     $('.drawer').drawer();
   });
 
-$(function(){
+jQuery(function($){
     $('.js-modal-open').on('click',function(){
         $('.js-modal').fadeIn();
         return false;
