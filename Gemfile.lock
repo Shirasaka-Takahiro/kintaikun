@@ -159,12 +159,11 @@ GEM
       omniauth-oauth (~> 1.1)
       rack
     orm_adapter (0.5.0)
-    pg (1.2.2)
     popper_js (1.14.5)
     public_suffix (4.0.3)
     puma (4.3.1)
       nio4r (~> 2.0)
-    rack (2.0.8)
+    rack (2.2.3)
     rack-proxy (0.6.5)
       rack
     rack-test (1.1.0)
@@ -287,7 +286,6 @@ DEPENDENCIES
   mysql2 (>= 0.4.4)
   omniauth
   omniauth-twitter
-  pg
   puma (~> 4.1)
   rails (~> 6.0.2, >= 6.0.2.1)
   rails-i18n
