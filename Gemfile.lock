@@ -56,7 +56,7 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
       zeitwerk (~> 2.2)
-    addressable (2.7.0)
+    addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
     autoprefixer-rails (9.7.3)
       execjs
@@ -159,9 +159,8 @@ GEM
       omniauth-oauth (~> 1.1)
       rack
     orm_adapter (0.5.0)
-    pg (1.2.2)
     popper_js (1.14.5)
-    public_suffix (4.0.3)
+    public_suffix (4.0.6)
     puma (4.3.1)
       nio4r (~> 2.0)
     rack (2.0.8)
@@ -287,7 +286,6 @@ DEPENDENCIES
   mysql2 (>= 0.4.4)
   omniauth
   omniauth-twitter
-  pg
   puma (~> 4.1)
   rails (~> 6.0.2, >= 6.0.2.1)
   rails-i18n
